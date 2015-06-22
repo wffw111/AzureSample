@@ -1,0 +1,16 @@
+﻿<div class="grid-column grid-cell" data-column-type="{{column.type}}" data-column-name="{{column.name}}"
+     data-sortable="sortable" ng-style="{'width':column.width}" ng-show="column.active"
+     ng-class="{'active':column.resizing}">
+    <span class="grid-column-content ">
+        <span>
+            <a ng-click="SortingHandler(column)">{{column.displayName}}</a>
+        </span>
+        <span class="sort-caret metroicon" ng-if="column.canSort"
+              ng-class="{'icon-arrow-up-4':column.checkSort(column.sortEnums.asc),
+              'icon-arrow-down-4':column.checkSort(column.sortEnums.desc)}"></span>
+    </span>
+    <div class="grid-column-menu-icon metroicon icon-menu" ng-click="colMenuHandler($event)"
+         ng-class="{'icon-menu':!menuIconHanlder(column),'icon-filter':menuIconHandler(column)}"></div>
+    <div class="drag-border" ng-click="dragClickHandler($event)"></div>
+</div>
+

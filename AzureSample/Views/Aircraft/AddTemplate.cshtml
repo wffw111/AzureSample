@@ -1,0 +1,28 @@
+﻿<div class="container" ng-controller="aircraftAddCtrl">
+    <form novalidate ng-submit="add(dismiss)" name="forms.gridAddForm">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h5 class="panel-title">{{grid.addConfig.title}}</h5>
+                <div class="panel-icon">
+                    <span class="icon-cancel-2 metroicon" ng-click="dismiss(false)"></span>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <div ng-include="tempUrl"></div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary btn-metro"
+                        ng-disabled="isLoading">
+                    <span ng-if="!isLoading">Add</span>
+                    <span ng-if="isLoading">Loading...</span>
+                </button>
+                <button type="button" ng-click="dismiss(false)"
+                        class="btn btn-default btn-metro">
+                    Close
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

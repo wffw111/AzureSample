@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Unit Test";
+    Layout = "~/Views/Shared/_UnitTestLayout.cshtml";
+}
+<div style="margin-top:70px"></div>
+
+<h2>Unit Test</h2>
+
+<div ng-controller="defaultCtrl">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Counter: {{counter}}</p>
+            <p>
+                <button type="button" class="btn btn-primary btn-metro"
+                        ng-click="incrementCounter()">
+                    Increment
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section script{
+
+    @Scripts.Render("~/Scripts/controls")
+
+    <script type="text/javascript" src="~/Scripts/angularjs/MainCtrl.js"></script>
+
+}

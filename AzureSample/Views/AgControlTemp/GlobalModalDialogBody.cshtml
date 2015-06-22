@@ -1,0 +1,22 @@
+﻿<div class="container-fluid global-modal-dialog">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h4>{{currentDialogType}}</h4>
+            </div>
+        </div>
+        <div class="panel-body">
+            {{content}}
+        </div>
+        <div class="panel-footer" ng-class="{'no-border':currentDialogType === dialogType.loading}">
+            <div ng-if="currentDialogType == dialogType.confirm">
+                <button type="button" class="btn btn-primary btn-metro" ng-click="yes()">Yes</button>
+                <button type="button" class="btn btn-default btn-metro" ng-click="no()">No</button>
+            </div>
+            <div ng-if="currentDialogType == dialogType.notice">
+                <button type="button" class="btn btn-purple btn-metro" ng-click="closeModal()">Ok</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

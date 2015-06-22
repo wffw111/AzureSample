@@ -1,0 +1,9 @@
+﻿<h5>{{group.displayName}}</h5>
+<div class="glyphicon glyphicon-remove icon dismiss flexable-dismiss"
+     ng-click="removeFilterGroup(group)"
+     title="Remove {{group.displayName}} Filter Group"></div>
+
+<div class="grid-item" ng-repeat="item in group.items">
+    <div filter-item-dir
+         class="grid-item-label column-flat flag-ct flag-ct-purple"></div>
+</div>

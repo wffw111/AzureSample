@@ -1,0 +1,53 @@
+﻿<div class="pagination-container">
+    <div>
+        <ul class="pagination marginzero pagination-grid" ng-show="pagination.getTotalPages() > 0 && pagination.currentPage >0">
+            <li class="page-first">
+                <a href="javascript:void(0)" ng-click="pagination.currentPage = 1">
+                    <span class="icon-first-2 metroicon"></span>
+                </a>
+            </li>
+            <li class="page-backward">
+                <a href="javascript:void(0)" ng-click="pagination.navigator('-')">
+                    <span class="icon-arrow-left-4 metroicon"></span>
+                </a>
+            </li>
+            <li class="page-preSection"
+                ng-hide="pagination.section.section <= 1 || pagination.currentPage <=0">
+                <a href="javascript:void(0)" ng-click="pagination.navigator('<')">...</a>
+            </li>
+            <li class="page-dynamic" ng-repeat="page in pagination.currentSections" ng-class="{'active':page == pagination.currentPage}">
+                <a href="javascript:void(0)" ng-class="{'active':page == pagination.currentPage}"
+                   ng-click="pagination.navigator(page)">{{page}}</a>
+            </li>
+
+            <li class="page-nextSection"
+                ng-hide="pagination.section.section * pagination.sectionSize  >= pagination.getTotalPages() || pagination.currentPage <= 0">
+                <a href="javascript:void(0)" ng-click="pagination.navigator('>')">
+                    ...
+                </a>
+            </li>
+            <li class="page-forward">
+                <a href="javascript:void(0)" ng-click="pagination.navigator('+')">
+                    <span class="icon-arrow-right-4 metroicon"></span>
+                </a>
+            </li>
+            <li class="page-last">
+                <a href="javascript:void(0)" ng-click="pagination.currentPage = pagination.getTotalPages()">
+                    <span class="icon-last-2 metroicon"></span>
+                </a>
+            </li>
+        </ul>
+        <div class="input-group" style="width:25%;display:table-cell" ng-if="pagination.getTotalPages() > 0">
+            <select ng-model="pagination.pageSize" class="form-control">
+                <option value="10">10 Items / Page</option>
+                <option value="30">30 Items / Page</option>
+                <option value="50">50 Items / Page</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="pagniation-indicator">
+        {{pagination.indicator()}}
+    </div>
+</div>
+

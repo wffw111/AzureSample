@@ -1,0 +1,36 @@
+﻿<div ng-if="!column.multiSelect">
+    <div filter-section item="filterItems.item1" template-url="column.getFilterTempUrl()">
+        loading...
+    </div>
+
+    <div class="form-group input-group">
+        <select class="form-control filter-logic" name="filterLogic"
+                ng-model="filterItems.item2.logic">
+            <option value="and">And</option>
+            <option value="or">Or</option>
+        </select>
+    </div>
+
+    <div filter-section item="filterItems.item2" template-url="column.getFilterTempUrl()">
+        loading...
+    </div>
+
+    <div class="checkbox">
+        <label><input type="checkbox" name="filterExcludeNull" ng-model="filterItems.item3.value"> Exclude empty values</label>
+    </div>
+</div>
+<div ng-if="column.multiSelect">
+    @*{{filterItems.items}}*@
+    @*<div filter-section item="filterItems" template-url="column.getFilterTempUrl()"
+         column-data="column">
+        loading
+    </div>*@
+    <multi-dropdown models="filterItems.items"
+                    loading-url="column.multiSelectUrl"
+                    loading-method="column.multiSelectMethod"
+                    value-key="column.selectValueKey"
+                    text-key="column.selectTextKey"
+                    class="multi-dropdown-list"
+                    bind-model-key="value"></multi-dropdown>
+</div>
+

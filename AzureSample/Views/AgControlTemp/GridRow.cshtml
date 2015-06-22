@@ -1,0 +1,10 @@
+﻿<div class="grid-row" ng-class="{'active':rowData.selected}" 
+     ng-click="grid.handleSelectedRow(rowData)"
+     right-menu-trigger="grid.handleSelectedRow(rowData,true)"
+     right-menu-template-url="rowRightMenu.menuTemplateUrl"
+     right-menu-model="rowRightMenu">
+    <div class="grid-cell" ng-repeat="column in grid.columns | filter:filterBy" ng-class="column.cssClass" 
+         grid-data-cell row-data="rowData" column-data="column" grid-data="grid">
+
+    </div>
+</div>

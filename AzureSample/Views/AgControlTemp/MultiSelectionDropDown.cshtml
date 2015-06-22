@@ -1,0 +1,52 @@
+﻿<button type="button" class="btn btn-default btn-metro"
+        ng-click="toggleDropPanel($event)">
+    {{selectItemCount()}}
+    <span class="icon-arrow-down-4 metroicon icon"></span>
+</button>
+@*<div class="row">
+        {{tempModel}}
+    </div>*@
+<div class="drop-panel" ng-show="panelActive">
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-purple btn-metro"
+                ng-click="selectAll()"
+                title="select all">
+            <span class="glyphicon glyphicon-ok"></span>
+        </button>
+        <button type="button" class="btn btn-default btn-metro"
+                ng-click="removeSearchKey()"
+                title="clear search">
+            <span class="glyphicon glyphicon-erase"></span>
+        </button>
+        <button type="button" class="btn btn-warning btn-metro"
+                ng-click="clearAll()"
+                title="unselect all">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+        <button type="button" class="btn btn-primary btn-metro"
+                ng-click="toggleShowSelect()"
+                style="width:75px">
+            {{showText}}
+        </button>
+
+
+        <button type="button" class="btn btn-default btn-metro" ng-click="close()">
+            close
+        </button>
+    </div>
+    <div class="input-group input-group-sm" style="width:100%;">
+        <input type="text" ng-model="searchKey" class="form-control" placeholder="search options"
+               style="font-size: 14px" />
+    </div>
+    <ul class="list-group" isolated-scroll>
+        <li class="list-group-item text-item"
+            ng-repeat="item in dataPool | filter:optionFilter(searchKey)"
+            ng-click="toggleSelection($event,item)">
+            <span>
+                {{item.data[textKey]}}
+            </span>
+            <span class="glyphicon glyphicon-ok icon" ng-if="item.selected"></span>
+        </li>
+    </ul>
+    <div style="text-align:center">{{dataPool.length}} Items All</div>
+</div>

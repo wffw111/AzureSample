@@ -1,0 +1,160 @@
+﻿<div class="container-fluid menu-container">
+    <div class="col-xs-12 col-sm-9 col-lg-10">
+        <div class="btn-toolbar">
+            <div class="grid-rainbow">
+                <span class="grid-rainbow-title">Action</span>
+                <div class="btn-group" role="group">
+                    <div ng-controller="gridAddCtrl">
+                        <div universal-modal body-temp-url="{{grid.addConfig.templateUrl}}"
+                             modal-active-callback="initializeAdd()">
+                            <button class="btn btn-default btn-metro" data-menu-action="create" title="Add New"
+                                    ng-click="active()">
+                                <span class="icon-plus-2 metroicon icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div ng-controller="gridCopyAddCtrl" ng-if="grid.addConfig.supportCopyAdd">
+                        <div universal-modal body-temp-url="{{grid.addConfig.copyAddTemplateUrl}}"
+                             modal-active-status="grid.addConfig.copyAdd"
+                             modal-active-callback="initializeCopyAdd()">
+                        </div>
+                    </div>
+                    <div ng-controller="gridQuickEditCtrl" ng-if="grid.editConfig.supportQuickEdit">
+                        <div universal-modal body-temp-url="{{grid.editConfig.quickTemplateUrl}}" modal-active-status="grid.editConfig.quickEdit"
+                             modal-active-callback="initializeEdit()">
+                            <button class="btn btn-default btn-metro" data-menu-action="edit" title="Quick Edit Select Item"
+                                    ng-click="grid.setQuickEditStatus()">
+                                <span class="glyphicon glyphicon-pencil icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div ng-controller="gridEditCtrl">
+                        <div universal-modal body-temp-url="{{grid.editConfig.templateUrl}}" modal-active-status="grid.editConfig.edit"
+                             modal-active-callback="initializeEdit()">
+                            <button class="btn btn-default btn-metro" data-menu-action="edit" title="Edit Select Item"
+                                    ng-click="grid.setEditStatus()">
+                                <span class="glyphicon glyphicon-edit icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid-rainbow">
+                <span class="grid-rainbow-title">Columns</span>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default btn-metro" title="Order Columns"
+                            ng-click="grid.editMode = !grid.editMode">
+                        <span class="glyphicon glyphicon-move icon"></span> {{grid.editMode ? 'On' : 'Off'}}
+                    </button>
+                    <div ng-controller="colConfigCtrl">
+                        <div universal-modal body-temp-url="{{configTempUrl}}">
+                            <button class="btn btn-default btn-metro" title="Config Grid Columns"
+                                    ng-click="active()">
+                                <span class="icon-grid metroicon icon"></span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="grid-rainbow">
+                <span class="grid-rainbow-title">Filter & Sorting</span>
+                <div class="btn-group" role="group">
+                    <div ng-controller="filterConfigCtrl">
+                        <div universal-modal body-temp-url="{{configTempUrl}}">
+                            <button class="btn btn-default btn-metro" title="Manage Filters"
+                                    ng-click="active()">
+                                <span class="icon-filter metroicon icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div ng-controller="sortingConfigCtrl">
+                        <div universal-modal body-temp-url="{{configTempUrl}}">
+                            <button class="btn btn-default btn-metro" title="Manage Sorting"
+                                    ng-click="active()">
+                                <span class="glyphicon glyphicon-sort icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="grid-rainbow">
+                <span class="grid-rainbow-title">Data</span>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default btn-metro" title="Reload Data"
+                            ng-click="grid.reload()">
+                        <span class="icon-play metroicon icon"></span>
+                    </button>
+                    <button class="btn btn-default btn-metro" title="Refresh Grid"
+                            ng-click="grid.refresh()">
+                        <span class="icon-cycle metroicon icon"></span>
+                    </button>
+                </div>
+            </div>
+            @*<div class="grid-rainbow">
+                <span class="grid-rainbow-title">Excel Report</span>
+                <div class="btn-group" role="group">
+                    <div ng-controller="quickExcelDumpingCtrl">
+                        <button class="btn btn-default btn-metro" title="Quick Excel Dumping"
+                                ng-click="excelDumping()">
+                            <span class="icon-file-excel metroicon icon"></span>
+                        </button>
+                    </div>
+                    <div ng-controller="ExcelReportTemplateCtrl">
+                        <div universal-modal body-temp-url="{{templateTempUrl}}">
+                            <button class="btn btn-default btn-metro" title="Excel Report"
+                                    ng-click="active()">
+                                <span class="icon-file metroicon icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div ng-controller="excelReportConfigCtrl">
+                        <div universal-modal body-temp-url="{{configTempUrl}}">
+                            <button class="btn btn-default btn-metro" title="Report Configuration"
+                                    ng-click="active()">
+                                <span class="glyphicon glyphicon-cog icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            <div class="grid-rainbow">
+                <span class="grid-rainbow-title">Grid Height</span>
+                <select class="form-control" ng-model="grid.bodyHeight">
+                    <option>100</option>
+                    <option>200</option>
+                    <option>300</option>
+                    <option>400</option>
+                    <option>500</option>
+                    <option>600</option>
+                    <option>700</option>
+                    <option>800</option>
+                    <option>900</option>
+                    <option>1000</option>
+                </select>
+            </div>
+            @*<div class="grid-rainbow">
+                <button class="btn btn-default btn-metro" title="Save Preference"
+                        ng-click="savePreference()">
+                    Save Preference
+                </button>
+            </div>*@
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-3 col-lg-2">
+        <div class="btn-toolbar">
+            <div class="btn-group" role="group" style="float:right">
+                <button class="btn btn-default btn-metro" title="Menu" ng-click="menuLoading()">
+                    <span class="glyphicon glyphicon-menu-hamburger icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12" ng-show="menuPanelActive">
+        <div ng-include="grid.GridMenuTemplate" class="menu-template-panel"></div>
+    </div>
+</div>

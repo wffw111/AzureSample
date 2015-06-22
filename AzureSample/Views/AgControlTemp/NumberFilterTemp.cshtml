@@ -1,0 +1,16 @@
+﻿<div class="form-group">
+    <select class="form-control filter-method" name="filterMethod" ng-model="item.method">
+        <option value="">Select filter method</option>
+        <option value="eq">Equal</option>
+        <option value="ne">Not Equal</option>
+        <option value="lt">Less than</option>
+        <option value="gt">Greater than</option>
+        <option value="le">Less than or equal to</option>
+        <option value="ge">Greater than or equal to</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <input type="number" class="form-control normal-input-control" placeholder="Filter Value"
+           name="filterValue" ng-model="item.value" />
+</div>

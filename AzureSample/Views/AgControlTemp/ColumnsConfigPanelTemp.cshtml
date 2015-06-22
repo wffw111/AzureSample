@@ -1,0 +1,52 @@
+﻿<div class="container">
+    <div class="panel panel-dark-purple">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{title}}</h5>
+            <div class="panel-icon">
+                <span class="icon-cancel-2 metroicon" ng-click="dismiss()"></span>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @*<div class="col-xs-12">
+                    <ul>
+                        <li style="display:inline-block;white-space:nowrap;list-style:none;margin-right:10px;"
+                            ng-repeat="column in grid.columns">{{$index}}{{column.displayName}}</li>
+                    </ul>
+                </div>*@
+            <div class="col-xs-12 well">
+                <div class="col-xs-2 col-lg-4"></div>
+                <div class="col-xs-8 col-lg-4">
+                    <div class="input-group" style="width:100%">
+                        <input type="text" class="form-control" placeholder="Search By Column Name"
+                               ng-model="searchModel.searchKey" />
+                        <span class="input-group-btn" ng-if="searchModel.searchKey">
+                            <button class="btn btn-default btn-metro"
+                                    ng-click="removeSearchKey()">
+                                <span class="glyphicon glyphicon-remove" title="remove search key"></span>
+                            </button>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="col-xs-2 col-lg-4"></div>
+            </div>
+
+            <div column-area="columnAreas.locked" grid-data="grid"
+                 filter-by="{locked:true,active:true,displayName:searchModel.searchKey}" drag-data="draggable" area-data="area" ctrl-fn="columnFn"></div>
+            <div column-area="columnAreas.active" grid-data="grid"
+                 filter-by="{locked:false,active:true,displayName:searchModel.searchKey}" drag-data="draggable" area-data="area" ctrl-fn="columnFn"></div>
+            <div column-area="columnAreas.inactive" grid-data="grid"
+                 filter-by="{active:false,displayName:searchModel.searchKey}" drag-data="draggable" area-data="area" ctrl-fn="columnFn"></div>
+        </div>
+        <div class="panel-footer" style="text-align:center">
+            <button type="button" ng-click="dismiss()"
+                    class="btn btn-default btn-metro">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
+
+

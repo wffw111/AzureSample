@@ -1,0 +1,32 @@
+﻿{
+    "version": "1.0.0.0",
+    "columns": [
+        { "name": "Id", "displayName": "Id", "type": "Edm.Int32","canSort": true, "canFilter": true },
+        { "name": "Name", "displayName": "Name", "type": "Edm.String", "canSearch": true, "canSort": true, "canFilter": true },
+        { "name": "CraftCode", "displayName": "Craft Code", "type": "Edm.String", "canFilter": true },
+        { "name": "Color", "displayName": "Color", "type": "Edm.String", "canSort": true, "canSearch": true, "canFilter": true },
+        { "name": "CraftType/TypeName", "displayName": "Type", "type": "Edm.String", "canSearch": true, "canSort": true, "canFilter": true },
+        { "name": "Manufacturer/Name", "displayName": "Manufacturer", "type": "Edm.String", "canSearch": true, "canSort": true, "canFilter": true },
+        { "name": "Cost", "displayName": "Cost", "type": "Edm.Money", "canSort": true, "canFilter": true },
+        { "name": "length", "displayName": "length", "type": "Edm.Nullable[Decimal]",  "canSort": true, "canFilter": true },
+        { "name": "Width", "displayName": "Width", "type": "Edm.Nullable[Decimal]", "canSort": true, "canFilter": true },
+        { "name": "Height", "displayName": "Height", "type": "Edm.Nullable[Decimal]", "canSort": true, "canFilter": true },
+        { "name": "Weight", "displayName": "Weight", "type": "Edm.Nullable[Decimal]",  "canSort": true, "canFilter": true },
+        { "name": "Voyage", "displayName": "Voyage", "type": "Edm.Nullable[Decimal]", "canSort": true, "canFilter": true }
+        
+    ],
+    "key": [ "Id" ],
+    "editMethod": "PATCH",
+    "keyType": "Edm.Int32",
+    "bodyHeight": 500,
+    "dataSource": {
+        "get": "/odata/Aircrafts",
+        "create": "/odata/Aircrafts",
+        "edit": "/odata/Aircrafts",
+        "getEdit": "/odata/Aircrafts",
+        "getDefault": "$expand=CraftType,Manufacturer"
+    },
+    "reportConfig": {
+        "expandQuery": "$expend=CraftType,Manufacturer"
+    }
+}

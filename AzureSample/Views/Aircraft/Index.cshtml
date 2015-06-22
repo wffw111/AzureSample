@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Aircraft Grid View";
+}
+<div style="margin-top:70px"></div>
+
+<h2>Aircraft Grid View</h2>
+
+<div ng-controller="aircraftGridCtrl">
+    <div ng-if="grid.initialized">
+        <div grid-view>
+            <div ct-pagination="grid.pagination" ct-callback="grid.assembleQuery()"></div>
+        </div>
+    </div>
+</div>
+
+@section script{
+
+    @Scripts.Render("~/Scripts/controls")
+
+    @Scripts.Render("~/Scripts/aircraftCtrl")
+
+
+}
+

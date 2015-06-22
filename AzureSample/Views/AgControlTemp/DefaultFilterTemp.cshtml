@@ -1,0 +1,18 @@
+﻿<div class="form-group">
+    <select class="form-control filter-method" 
+            name="{{inputName + '_method'}}" ng-model="item.method"
+            ng-required="dataRequired">
+        <option value="">Select filter method</option>
+        <option value="startswith">Start With</option>
+        <option value="endswith">End With</option>
+        <option value="substringof">Contains</option>
+        <option value="eq">Equal</option>
+        <option value="ne">Not Equal</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <input type="text" class="form-control normal-input-control" placeholder="Filter Value"
+           name="{{inputName + '_input'}}" ng-model="item.value"
+           ng-required="dataRequired" />
+</div>

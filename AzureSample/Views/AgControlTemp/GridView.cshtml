@@ -1,0 +1,84 @@
+﻿
+<div class="grid-table grid-table-striped" id="{{grid.id}}"
+     ng-class="{'edit':grid.editMode}" right-menu-container>
+    <div position-indicator class="pos-indicator">
+        <span class="icon-arrow-down-4 metroicon icon"></span>
+        <span class="border"></span>
+    </div>
+
+    <div class="grid-top-bar" ng-controller="gridSearchCtrl">
+        <div><h5>{{grid.name}}</h5></div>
+        <div>
+            <button type="button" class="btn btn-default btn-metro"
+                    style="width:100%;text-overflow:ellipsis;overflow:hidden"
+                    ng-if="grid.searchKey" title="remove search key"
+                    ng-click="removeSearchKey()">
+                <span class="glyphicon glyphicon-remove icon"></span>
+                {{grid.searchKey}}
+            </button>
+        </div>
+        <div>
+            <div class="input-group">
+                <multi-dropdown models="grid.searchCols"
+                                resource-model="grid.searchResourceCols"
+                                value-key="'name'"
+                                text-key="'displayName'"
+                                class="multi-dropdown-list input-group-btn" style="font-size:14px;width:180px"></multi-dropdown>
+                <input type="text" class="form-control" name="gridSearchBar" placeholder="search your apps"
+                       ng-model="grid.searchKey" ng-enter="grid.search(e)" />
+                <span class="input-group-btn">
+                    <button class="btn btn-purple btn-metro" type="button" data-menu-action="search">
+                        <span class="icon-search metroicon icon" ng-click="grid.search()"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="grid-menu">
+        <div grid-menu></div>
+    </div>
+    <div class="grid-header" ng-controller="colsRowCtrl">
+        <div class="grid-header-wrapper">
+            <div class="grid-row grid-stick-column-wrapper" ng-style="{'width':stickWidth}">
+                <div ng-repeat="column in grid.columns | filter: {locked:true}" grid-column ng-if="!grid.editMode"></div>
+                <div ng-repeat="column in grid.columns | filter: {locked:true}" grid-drag-column ng-if="grid.editMode"></div>
+            </div>
+            <div class="grid-row grid-header-wrapper" ng-style="{'left':stickWidth}">
+                <div class="grid-row grid-column-row">
+                    <div ng-repeat="column in grid.columns | filter: {locked:false}" grid-column ng-if="!grid.editMode"></div>
+                    <div ng-repeat="column in grid.columns | filter: {locked:false}" grid-drag-column ng-if="grid.editMode"></div>
+                </div>
+            </div>
+        </div>
+        <div grid-column-menu column="grid.menuActiveCol"
+             ng-style="{'display':grid.menuActiveCol.show ? 'block' : 'none'}"
+             grid-data="grid" remove-menu="removeMenu"></div>
+    </div>
+    <div class="grid-body" ng-style="{'height':grid.bodyHeight}">
+        <div class="grid-stick-body"
+             ng-style="{'width':stickWidth,'height':stickedHeight}">
+            <div ng-repeat="data in grid.dataPool" grid-data-row row-data="data"
+                 grid-data="grid" row-right-menu="rowRightMenu" filter-by="{locked:true}"></div>
+            <div ng-if="grid.dataPool.length == 0">
+                <div grid-data-row grid-data="grid" filter-by="{locked:true}"></div>
+            </div>
+        </div>
+        <div class="grid-normal-body" normal-body-dir
+             isolated-scroll ng-style="{'left':stickWidth,'width':unStickWidth}">
+            <div ng-repeat="data in grid.dataPool" grid-data-row on-last-repeat row-data="data"
+                 grid-data="grid" row-right-menu="rowRightMenu" filter-by="{locked:false}"></div>
+            <div ng-if="grid.dataPool.length == 0">
+                <div grid-data-row grid-data="grid" filter-by="{locked:false}"></div>
+            </div>
+        </div>
+        <div class="grid-disabled-body" ng-class="{'show':grid.apiCall}">
+            <div><img src="/Content/images/loading.gif" style="margin: 5px 5px" /></div>
+        </div>
+    </div>
+    <div class="grid-footer body-container-fluid" ng-transclude></div>
+</div>
+
+
+
+
+

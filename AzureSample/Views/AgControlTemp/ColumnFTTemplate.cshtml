@@ -1,0 +1,31 @@
+﻿<div>
+    <span>{{ctrlFn.findColIndex(column)}}</span><!--
+    --><span class="drag-area">
+        <span style="width:100%;overflow:hidden;">{{column.displayName}}</span>
+    </span><!--
+    --><span ng-click="ctrlFn.deactivateColumn(column)" ng-if="column.locked && column.active"
+          title="deactivate the column">
+        <span class="icon icon-arrow-left-3 metroicon"></span>
+    </span><!--
+    --><span ng-click="ctrlFn.lockColumn(column)" ng-if="!column.locked && column.active"
+          title="lock the column">
+        <span class="icon icon-arrow-left-3 metroicon"></span>
+    </span><!--
+    --><span ng-click="ctrlFn.activateColumn(column)" ng-if="!column.active"
+          title="activate the column">
+        <span class="icon icon-arrow-left-3 metroicon"></span>
+    </span><!--
+
+    --><span ng-click="ctrlFn.unlockColumn(column)" ng-if="column.locked && column.active"
+          title="unlock the column">
+        <span class="icon icon-arrow-right-3 metroicon"></span>
+    </span><!--
+    --><span ng-click="ctrlFn.deactivateColumn(column)" ng-if="!column.locked && column.active"
+          title="deactivate the column">
+        <span class="icon icon-arrow-right-3 metroicon"></span>
+    </span><!--
+    --><span ng-click="ctrlFn.lockColumn(column)" ng-if="!column.active"
+          title="lock the column">
+        <span class="icon icon-arrow-right-3 metroicon"></span>
+    </span>
+</div>

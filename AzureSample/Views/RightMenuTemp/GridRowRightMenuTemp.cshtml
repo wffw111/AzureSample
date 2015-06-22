@@ -1,0 +1,19 @@
+﻿<div class="custom-right-menu active"
+     ng-style="{'top':relativePos.top,'left':relativePos.left}">
+    <div class="list-group">
+        <a class="list-group-item text-item"
+           ng-click="grid.setQuickEditStatus();closeMenu()"
+           ng-if="grid.editConfig.supportQuickEdit">Quick Edit</a>
+        <a class="list-group-item text-item"
+           ng-click="grid.setEditStatus();closeMenu()">Edit</a>
+        <div class="divider"></div>
+        <a class="list-group-item text-item"
+           ng-click="grid.setCopyAddStatus();closeMenu()"
+           ng-if="grid.addConfig.supportCopyAdd">Copy and Add New</a>
+        <div class="divider" ng-if="grid.addConfig.supportCopyAdd"></div>
+        <a class="list-group-item text-item"
+           ng-click="grid.reload();closeMenu()">Reload</a>
+        <a class="list-group-item text-item"
+           ng-click="grid.refresh();closeMenu()">Refresh</a>
+    </div>
+</div>

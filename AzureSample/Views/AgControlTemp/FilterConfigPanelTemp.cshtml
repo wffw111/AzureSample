@@ -1,0 +1,122 @@
+﻿<div class="container">
+    <div class="panel panel-purple">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{title}}</h5>
+            <div class="panel-icon">
+                <span class="icon-cancel-2 metroicon" ng-click="dismiss();modalClose()"></span>
+            </div>
+        </div>
+        <div class="panel-body">
+
+            <div class="well">
+                <div class="row" style="padding-bottom:15px">
+                    <div class="col-xs-10">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-purple btn-metro"
+                                    ng-click="mm.toggleAddArea()"
+                                    style="margin-right:15px;">
+                                Add Filter Item
+                            </button>
+                            <button type="button" class="btn btn-warning btn-metro"
+                                    ng-click="mm.removeAll()"
+                                    ng-if="grid.filterGroups.length > 0">
+                                Remove All
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default btn-metro"
+                                    ng-click="mm.activeDisplayMode = displayMode.list"
+                                    ng-class="{'active':mm.activeDisplayMode == displayMode.list}"
+                                    title="normal list view">
+                                <div class="glyphicon glyphicon-list"></div>
+                            </button>
+                            <button type="button" class="btn btn-default btn-metro"
+                                    ng-click="mm.activeDisplayMode = displayMode.groupList"
+                                    ng-class="{'active':mm.activeDisplayMode == displayMode.groupList}"
+                                    title="group list view">
+                                <div class="glyphicon glyphicon-th-list"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="mm.showAddArea">
+                    <form class="form-inline" name="forms.filterForm"
+                          ng-submit="addNewFilter(mm.newFilterItem,mm.selectColumn)">
+                        <div class="col-xs-3">
+                            <select ng-model="mm.selectColumn"
+                                    ng-options="column.displayName for column in grid.columns | filter:filterCols"
+                                    class="form-control">
+                                <option value="">Select Filter Column</option>
+                            </select>
+                        </div>
+
+                        <div class="col-xs-9" ng-if="mm.selectColumn">
+                            @*<div rich-input itemid="mm.newFilterItem" input-name="richandRich"></div>*@
+                            <div ng-if="!mm.selectColumn.multiSelect">
+                                <div class="form-group" filter-section item="mm.newFilterItem" input-name="selectOne"
+                                     template-url="mm.selectColumn.getFilterTempUrl()" required>
+                                    loading...
+                                </div>
+                                <button type="submit" class="btn btn-default btn-metro"
+                                        title="add new filter item"
+                                        ng-disabled="forms.filterForm.$invalid">
+                                    <span class="metroicon icon icon-plus-2"></span>
+                                </button>
+                            </div>
+                            <div ng-if="mm.selectColumn.multiSelect" class="col-xs-6 col-md-4 col-lg-2">
+                                <multi-dropdown models="mm.newFilterItem.items"
+                                                loading-url="mm.selectColumn.multiSelectUrl"
+                                                loading-method="mm.selectColumn.multiSelectMethod"
+                                                value-key="mm.selectColumn.selectValueKey"
+                                                text-key="mm.selectColumn.selectTextKey"
+                                                class="multi-dropdown-list"
+                                                bind-model-key="value"></multi-dropdown>
+                            </div>
+                            <div ng-if="mm.selectColumn.multiSelect" class="col-xs-2 col-lg-1" style="padding-left:0">
+                                <button type="submit" class="btn btn-default btn-metro"
+                                        title="add new filter item"
+                                        ng-disabled="mm.newFilterItem.items.length<=0">
+                                    <span class="metroicon icon icon-plus-2"></span>
+                                </button>
+                            </div>
+                            @*<div>
+                                {{mm.newFilterItem.items}}
+                            </div>*@
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div ng-if="grid.filterGroups.length > 0">
+                <div ng-if="mm.activeDisplayMode == displayMode.list">
+                    <div class="well" style="white-space:normal">
+                        <div class="grid-item" ng-repeat="item in filterItemArray()">
+                            <div filter-item-dir
+                                 class="grid-item-label column-flat flag-ct flag-ct-purple"></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="mm.activeDisplayMode == displayMode.groupList">
+                    <div class="well" style="white-space:normal;position:relative" 
+                         filter-group-dir ng-repeat="group in grid.filterGroups"></div>
+                </div>
+            </div>
+            <div ng-if="grid.filterGroups.length == 0">
+                <div class="well">
+                    Currently The Grid View has no Filters
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="button" ng-click="dismiss();modalClose()"
+                    class="btn btn-default btn-metro">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
+

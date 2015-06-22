@@ -1,0 +1,32 @@
+﻿<div>
+    {{column}}
+    <div class="capt" ng-if="mm.activeDisplayMode == displayMode.list">{{item.displayKey}}</div>
+    <div ng-if="!item.nullFilter">{{item.methodName()}}</div>
+    <div ng-if="!item.nullFilter">
+        <span ng-if="item.isDate()">{{item.getValue(item) | date:'dd MMM yyyy'}}</span>
+        <span ng-if="!item.isDate()">{{item.getValue(item)}}</span>
+    </div>
+    <div ng-if="item.nullFilter">Not Empty</div>
+    <div class="glyphicon glyphicon-edit icon"
+         ng-click="toggleEditPanel()"
+         ng-if="!item.editable"></div>
+    <div class="glyphicon glyphicon-remove icon dismiss"
+         ng-click="removeFilterItem(item)"></div>
+</div>
+<div class="panel panel-transparent" style="margin-bottom:0"
+     ng-if="editMode && !item.nullFilter" ng-controller="filterItemEditCtrl">
+    <form name="forms.editForm" novalidate ng-submit="editFilterItem(editItem,editMode)">
+        <div class="panel-body">
+            <div class="form-group" filter-section template-url="item.filterTempUrl" item="editItem"
+                 required>
+                loading...
+            </div>
+        </div>
+        <div class="panel-footer" style="background:transparent">
+            <button type="submit" class="btn btn-primary btn-metro"
+                    ng-disabled="forms.editForm.$invalid || !forms.editForm.$dirty">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            </button>
+        </div>
+    </form>
+</div>

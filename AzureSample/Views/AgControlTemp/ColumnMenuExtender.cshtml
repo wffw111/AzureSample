@@ -1,0 +1,22 @@
+﻿<a ng-click="handleExtender()">
+    <span>{{name}}</span> <span class="icon-arrow-right-4 metroicon"></span>
+</a>
+
+<div class="menu-extender-panel"
+     ng-style="{'left':panelPos.left,'top':panelPos.top}">
+    <div class="panel panel-default">
+        <form name="menuExtenderForm" ng-submit="go();handleExtender()">
+            <div class="panel-body" ng-include="templateUrl" ng-if="menuExtenderHandle(name)"></div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary btn-metro"
+                        @*ng-disabled="!dirty"*@>
+                    GO
+                </button>
+                <button type="button" class="btn btn-default btn-metro"
+                        ng-click="handleExtender()">
+                    Close
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

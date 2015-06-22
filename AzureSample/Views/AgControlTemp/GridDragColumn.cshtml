@@ -1,0 +1,19 @@
+﻿<div class="grid-column grid-cell" data-column-type="{{column.type}}" data-column-name="{{column.name}}"
+     data-sortable="sortable" ng-style="{'width':column.width}" ng-show="column.active" h-drop-grid
+     ng-class="{'active':column.resizing}"
+     draggable-item="draggable"
+     draggable-class="drag-column-ghost"
+     ng-mousedown="initializePosIndicator()"
+     ng-mouseenter="mouseEnterFn(column)"
+     ng-mouseup="mouseupFn()"
+     ng-mousemove="mouseMoveFn($event);updatePosIndicator()"
+     draggable-drop="ctrlFn.drop(column)"
+     ng-class="{'dragged':dragged}">
+    <span class="grid-column-content drag-area" style="margin-right:0">
+        <span>{{column.displayName}}</span>
+        @*<span class="sort-caret metroicon" ng-if="column.canSort"
+            ng-class="{'icon-arrow-up-4':column.checkSort(column.sortEnums.asc),
+            'icon-arrow-down-4':column.checkSort(column.sortEnums.desc)}"></span>*@
+    </span>
+    @*<div class="drag-border" ng-click="dragClickHandler($event)"></div>*@
+</div>

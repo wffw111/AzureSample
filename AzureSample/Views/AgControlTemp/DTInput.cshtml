@@ -1,0 +1,22 @@
+﻿<div class="dt-input-group" style="display:table;width:100%;">
+    <div class="col">
+        <select class="form-control year-control" ng-model="date.year"
+                ng-options="year as year for year in dateCollections.years"
+                >
+            <option value="">Y</option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="form-control month-control" ng-model="date.month"
+                ng-options="month.name for month in dateCollections.months track by month.value">
+            <option value="">M</option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="form-control day-control" ng-model="date.day" ng-disabled="dateCollections.days.length==0"
+                ng-options="day.name for day in dateCollections.days track by day.value">
+            <option value="">D</option>
+        </select>
+    </div>
+</div>
+

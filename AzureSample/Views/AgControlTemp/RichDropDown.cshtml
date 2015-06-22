@@ -1,0 +1,55 @@
+﻿<input type="text" class="form-control" autocomplete="off"
+       ng-click="toggleDropPanel($event)" ng-enter="toggleDropPanel(e)"
+       ng-model="searchKey"
+       ng-keydown="keyDownHandler($event)"
+       ng-keyup="keyUpHanlder($event)"
+       ng-blur="toggleDropPanel($event,false)" /><!--
+--><input type="hidden" class="selected-value" name="{{name}}"
+       ng-model="bindTarget" /><!--
+--><span class="input-content-label btn btn-default btn-metro"
+      ng-class="{'show':selectedItem}"
+      ng-mousedown="preventBlur($event)"
+      ng-click="toggleDropPanel($event)">
+    {{selectedItem[textKey]}}
+</span><!--
+--><span class="icon-dropdown icon-arrow-down-4 metroicon"></span><!--
+--><div class="drop-menu-wrapper" ng-if="bodyTempUrl"><!--
+    --><div universal-modal body-temp-url="{{modalPanelUrl}}">
+        <a class="btn btn-default btn-metro drop-menu-button"
+           ng-click="active()">
+            <i class="icon-plus-2 metroicon icon"></i>
+        </a>
+    </div>
+</div>
+<div class="drop-panel" ng-class="{'active':panelActive}"
+     ng-mousedown="preventBlur($event)">
+    <div class="list-group drop-panel-body" isolated-scroll
+         ng-style="{'height':changeHeight()}">
+        <a class="list-group-item text-item"
+           option-value="{{item[valueKey]}}"
+           ng-repeat="item in dataFilterPool"
+           on-last-repeat
+           ng-click="chooseItem(item)">
+            {{item[textKey]}}
+        </a>
+    </div>
+    <div class="drop-panel-footer">
+        <span ng-if="currentPage < getTotalPages()"
+              ng-click="loadData($event)">
+            {{totalItems - dataPool.length}} Items More
+        </span>
+        <span ng-if="currentPage >= getTotalPages()">
+            <span ng-if="currentPage == 1">
+                {{dataFilterPool.length}} Items
+            </span>
+            <span ng-if="currentPage > 1">
+                {{totalItems}} Items
+            </span>
+        </span>
+    </div>
+</div>
+
+
+
+
+

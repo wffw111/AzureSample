@@ -1,0 +1,44 @@
+﻿<ul class="grid-column-menu dropdown-menu">
+
+    <!--region sort*-->
+    <li role="presentation" class="dropdown-header" ng-if="column.canSort">Sorting Action</li>
+    <li data-menu-group="sortAction" ng-if="column.canSort"
+        ng-class="{'active':column.checkSort(column.sortEnums.asc)}"
+        ng-click="SortingHandler(column,column.sortEnums.asc)">
+        <a href="javascript:void(0)" data-menu-action="asc">Sort Ascending</a>
+    </li>
+    <li data-menu-group="sortAction" ng-if="column.canSort" ng-class="{'active':column.checkSort(column.sortEnums.desc)}"
+        ng-click="SortingHandler(column,column.sortEnums.desc)">
+        <a href="javascript:void(0)" data-menu-action="desc">Sort Descending</a>
+    </li>
+    <li role="presentation" class="divider" ng-if="column.canSort"></li>
+    <!--end region sort*-->
+    <!-- region filter-->
+    <li role="presentation" class="dropdown-header" ng-if="column.canFilter">Filting Action</li>
+    <li ng-controller="columnFilterCtrl" ng-class="{'active':menuExtenderHandle(name)}">
+        <div ng-if="column.canFilter" column-menu-extender class="menu-extender"
+             data-menu-group="filterAction"
+             initialize-callback="initializeFilterItems()"
+             extender-callback="callbackFunc()">
+        </div>
+    </li>
+
+    <li role="presentation" class="divider" ng-if="column.canFilter"></li>
+    <!-- end region filter-->
+    <!-- region lock-->
+    <li role="presentation" class="dropdown-header">Lock/Unlock Action</li>
+
+    <li>
+        <a href="javascript:void(0)" data-menu-action="lock" ng-click="handleLockColumns()">
+            <span ng-if="!column.locked">
+                <span class="icon-locked metroicon icon"></span><span class="content">lock the Column</span>
+            </span>
+            <span ng-if="column.locked">
+                <span class="icon-unlocked metroicon icon"></span><span class="content">unlock the Column</span>
+            </span>
+        </a>
+    </li>
+
+    <li role="presentation" class="divider"></li>
+    <!--end region lock-->
+</ul>

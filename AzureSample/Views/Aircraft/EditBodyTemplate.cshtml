@@ -1,0 +1,74 @@
+﻿<div class="col-xs-12 row">
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Name</label>
+        <input type="text" class="form-control" name="Name"
+               ng-model="model.Name" />
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Craft Code</label>
+        <input type="text" class="form-control" name="CraftCode"
+               ng-model="model.CraftCode" />
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Color</label>
+        <input type="text" class="form-control" name="Color"
+               ng-model="model.Color" />
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Cost</label>
+        <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" name="Cost"
+                   ng-model="model.Cost" />
+        </div>
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Width</label>
+        <input type="text" class="form-control" name="Width"
+               ng-model="model.Width" />
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Height</label>
+        <input type="text" class="form-control" name="Height"
+               ng-model="model.Height" />
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Weight</label>
+        <input type="text" class="form-control" name="Weight"
+               ng-model="model.Weight" />
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Voyage</label>
+        <input type="text" class="form-control" name="Voyage"
+               ng-model="model.Voyage" />
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Craft Type</label>
+        <rich-dropdown class="rf-droplist" loading-url="/CraftTypes" creating-url="/CraftTypes"
+                       creating-template-url="/CreateTemplate/CraftType" data-name="TypeNo"
+                       value-key="Id" text-key="TypeName" bind-target="model.TypeNo">
+        </rich-dropdown>
+    </div>
+
+    <div class="form-group col-xs-12 col-md-6 col-lg-4 col-xlg-3">
+        <label class="control-label">Manufacturer</label>
+        <rich-dropdown class="rf-droplist" loading-url="/Manufacturers" creating-url="/Manufacturers"
+                       creating-template-url="/CreateTemplate/Manufacturer" data-name="ManufacturerNo"
+                       value-key="Id" text-key="Name" bind-target="model.ManufacturerNo">
+        </rich-dropdown>
+    </div>
+
+</div>
+
+
+
+
+

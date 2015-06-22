@@ -1,0 +1,25 @@
+﻿<div class="panel panel-purple">
+    <div class="panel-heading">
+        <h5 class="panel-title">{{title}}</h5>
+        <div class="panel-icon">
+            <span class="icon-cancel-2 metroicon" ng-click="dismiss()"></span>
+        </div>
+    </div>
+    <div ng-form name="forms.richDropDownForm"
+         ng-enter-submit="creatingMenuSubmit($event,dismiss)"
+         ng-enter-invalid="forms.richDropDownForm.$invalid || !forms.richDropDownForm.$dirty" novalidate>
+        <div class="panel-body" ng-include="bodyTempUrl">
+            loading...
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="btn btn-primary btn-metro"
+                    ng-disabled="forms.richDropDownForm.$invalid || !forms.richDropDownForm.$dirty"
+                    ng-click="creatingMenuSubmit($event,dismiss)">
+                Create
+            </button>
+            <a class="btn btn-default btn-metro" ng-click="dismiss()">
+                Close
+            </a>
+        </div>
+    </div>
+</div>

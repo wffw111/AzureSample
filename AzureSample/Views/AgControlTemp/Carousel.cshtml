@@ -1,0 +1,37 @@
+﻿<div class="carousel-inner-wrapper">
+    <div class="carousel-inner" role="listbox" ng-style="{'height':config.height}">
+        <div class="item" ng-repeat="image in imagesData"
+             ng-class="{'active':image.active}">
+            <img ng-src="{{getThumbnailUrl(image)}}" />
+        </div>
+    </div>
+    <a class="left carousel-control" ng-href="" role="button" data-slide="prev"
+       ng-click="goPrev()">
+        <span class="icon-arrow-left-5 metroicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" ng-href="" role="button" data-slide="next"
+       ng-click="goNext()">
+        <span class="icon-arrow-right-5 metroicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="carousel-image-thumbnails">
+    <a class="thumbnail" data-slide-to="0" style="height:60px;"
+       ng-if="rightMenu"
+       ng-repeat="image in imagesData"
+       ng-click="setActive(image)"
+       ng-class="{'active':image.active}"
+       right-menu-trigger="setActive(image)"
+       right-menu-template-url="rightMenu.templateUrl"
+       right-menu-model="image">
+        <img ng-src="{{getThumbnailUrl(image)}}" />
+    </a>
+    <a class="thumbnail" data-slide-to="0" style="height:60px;"
+       ng-if="!rightMenu"
+       ng-repeat="image in imagesData"
+       ng-click="setActive(image)"
+       ng-class="{'active':image.active}">
+        <img ng-src="{{getThumbnailUrl(image)}}" />
+    </a>
+</div>

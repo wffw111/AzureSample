@@ -1,0 +1,11 @@
+﻿describe("Service tests", function () {
+    beforeEach(angular.mock.module('unitTestApp'));
+
+    it("Increments the counter", function () {
+        angular.mock.inject(function (counterService) {
+            expect(counterService.getCounter()).toEqual(0);
+            counterService.incrementCounter();
+            expect(counterService.getCounter()).toEqual(1);
+        })
+    })
+})

@@ -1,0 +1,27 @@
+﻿<div class="container" ng-controller="aircraftEditCtrl">
+    <form novalidate ng-submit="edit()" name="forms.gridEditForm">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h5 class="panel-title">{{grid.editConfig.title}} {{key}}</h5>
+                <div class="panel-icon">
+                    <span class="icon-cancel-2 metroicon" ng-click="grid.setEditStatus(false)"></span>
+                </div>
+            </div>
+
+            <div class="panel-body" ng-if="initialize">
+                <div ng-include="tempUrl"></div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary btn-metro"
+                        ng-disabled="isLoading">
+                    <span ng-if="!isLoading">Edit</span>
+                    <span ng-if="isLoading">Loading...</span>
+                </button>
+                <button type="button" ng-click="grid.setEditStatus(false)"
+                        class="btn btn-default btn-metro">
+                    Close
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
