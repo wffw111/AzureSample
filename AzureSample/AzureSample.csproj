@@ -158,6 +158,7 @@
     <Compile Include="Controllers\api\ManufacturersController.cs" />
     <Compile Include="Controllers\mvc\AircraftController.cs" />
     <Compile Include="Controllers\mvc\AgControlTempController.cs" />
+    <Compile Include="Controllers\mvc\AnimateController.cs" />
     <Compile Include="Controllers\mvc\CreateTemplateController.cs" />
     <Compile Include="Controllers\mvc\HomeController.cs" />
     <Compile Include="Controllers\mvc\RightMenuTempController.cs" />
@@ -187,6 +188,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\library\angular-route.js" />
+    <Content Include="Scripts\library\angular-route.min.js" />
+    <Content Include="Scripts\angularjs\animation\animateMain.js" />
+    <Content Include="Scripts\library\angular-animate.js" />
+    <Content Include="Scripts\library\angular-animate.min.js" />
     <Content Include="Scripts\angularjs\base\base.js" />
     <Content Include="Scripts\angularjs\controls\angular-file-upload.js" />
     <Content Include="Scripts\angularjs\controls\carouselModule.js" />
@@ -224,6 +230,8 @@
     <Content Include="Content\style\fonts\PTSerif-Caption.woff" />
     <None Include="Properties\PublishProfiles\wffw.pubxml" />
     <Content Include="Scripts\library\angular.min.js.map" />
+    <Content Include="Scripts\library\angular-animate.min.js.map" />
+    <Content Include="Scripts\library\angular-route.min.js.map" />
     <None Include="Scripts\library\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\library\jasmine-html.js" />
     <Content Include="Scripts\library\jasmine.js" />
@@ -295,10 +303,15 @@
     <Content Include="Views\CreateTemplate\Manufacturer.cshtml" />
     <Content Include="Views\UnitTest\Index.cshtml" />
     <Content Include="Views\Shared\_UnitTestLayout.cshtml" />
+    <Content Include="Views\Shared\_AnimateLayout.cshtml" />
+    <Content Include="Views\Animate\Index.cshtml" />
+    <Content Include="Views\Animate\Animate1.cshtml" />
+    <Content Include="Views\Animate\Animate2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Excel\" />
+    <Folder Include="Scripts\angularjs\animation\controller\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

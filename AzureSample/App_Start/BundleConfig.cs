@@ -11,6 +11,8 @@ namespace AzureSample
             bundles.Add(new ScriptBundle("~/Scripts/libraries").Include(
                 "~/Scripts/library/jquery-{version}.js",
                 "~/Scripts/library/angular.js",
+                "~/Scripts/library/angular-animate.js",
+                "~/Scripts/library/angular-route.js",
                 "~/Scripts/library/jasmine.js",
                 "~/Scripts/library/jasmine-html.js",
                 "~/Scripts/library/bootstrap.js"));

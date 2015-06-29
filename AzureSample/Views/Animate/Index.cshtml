@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AnimateLayout.cshtml";
+}
+<div style="margin-top:50px;"></div>
+<h2>Animate Layout</h2>
+
+<a ng-href="#/animate1">Animate 1</a>
+<a ng-href="#/animate2">Animate 2</a>
+
+<div class="row">
+    <ng-view></ng-view>
+</div>
+
+
+
+@section script{
+    <script type="text/javascript" src="~/Scripts/angularjs/animation/animateMain.js"></script>
+}
+
